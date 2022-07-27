@@ -2,12 +2,13 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Basement Grotesque',-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Basement Grotesque', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    color: white;
-    background-color: black;
+  color: white;
+  background-color: black;
 }
-*{
+
+* {
   box-sizing: border-box;
   /* transition: all .3s; */
 
@@ -17,7 +18,8 @@ body {
   font-family: 'Basement Grotesque';
   src: url(../public//BasementGrotesque/BasementGrotesque-Black_v1.202.woff);
 }
-a{
+
+a {
   text-decoration: none;
   color: #fff;
 }

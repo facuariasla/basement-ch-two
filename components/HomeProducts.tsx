@@ -5,6 +5,13 @@ import styles from "../styles/Products.module.scss";
 import addImg from "../assets/addtocart.svg";
 
 const HomeProducts = () => {
+
+
+
+  const handleAddItem = (data:any) => {
+    console.log(data)
+  }
+
   const inventory = useStore((state: any) => state.inventory);
   return (
     <section className={styles.products_container}>
@@ -12,7 +19,7 @@ const HomeProducts = () => {
         {/* CARDS */}
         {inventory?.map((item: any) => (
           <div key={item.id} className={styles.product_card}>
-            <div className={styles.image_container}>
+            <div className={styles.image_container} onClick={()=>handleAddItem(item)}>
               <Image
                 src={item.image}
                 width={220}

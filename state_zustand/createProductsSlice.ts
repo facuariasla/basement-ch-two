@@ -1,6 +1,6 @@
-import shirtimg from '../assets/shirt.png';
-import hoodieimg from '../assets/hoodie.png';
-import capimg from '../assets/cap.png';
+import shirtimg from "../assets/shirt.png";
+import hoodieimg from "../assets/hoodie.png";
+import capimg from "../assets/cap.png";
 
 export const createProductsSlice = (set: any, get: any) => ({
   inventory: [
@@ -10,16 +10,15 @@ export const createProductsSlice = (set: any, get: any) => ({
       description: "Unisex Basic softstyle T-Shirt",
       image: shirtimg,
       price: 7.95,
-      stock: [{ s: 10 }, { m: 20 }, { l: 15 }, { xl: 30 }],
+      stock: [{ s: 10 }, { m: 20 }, { l: 15 }, { xl: 100 }],
     },
-
     {
       id: 2,
       title: "Black hoodie",
       description: "Unisex Basic HeayWeight Black Hoodie",
       image: hoodieimg,
       price: 13,
-      stock: [{ s: 10 }, { m: 20 }, { l: 15 }, { xl: 30 }],
+      stock: [{ s: 10 }, { m: 20 }, { l: 15 }, { xl: 100 }],
     },
     {
       id: 3,
@@ -27,11 +26,17 @@ export const createProductsSlice = (set: any, get: any) => ({
       description: "Unisex Basic Cap",
       image: capimg,
       price: 23,
-      stock: [{ s: 10 }, { m: 20 }, { l: 15 }, { xl: 30 }],
+      stock: [{ s: 10 }, { m: 20 }, { l: 15 }, { xl: 100 }],
     },
   ],
-  cart:[],
-  setCartItem: (item:any) => {
+  cart: [],
+  setCartItem: (item: any) => {
+    const inventoryElement= get().inventory.find(
+      (element: any) => element.id === item.id
+    );
+    const inventoryDiscount = inventoryElement.stock.map((size:any) => 
+      size === item.size
+    )
     // logica
 
     // set({
@@ -39,9 +44,9 @@ export const createProductsSlice = (set: any, get: any) => ({
     // });
   },
 
-  removeFav: (token:any) => {
+  removeFav: (token: any) => {
     const favFilter = get().favTokens?.filter(
-      (el:any) => el.symbol !== token.symbol
+      (el: any) => el.symbol !== token.symbol
     );
     console.log(favFilter);
   },
