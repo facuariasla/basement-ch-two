@@ -14,6 +14,10 @@ const AnimatedDivider = () => {
         <p> — A man can't have enough basement swag</p>
         <p> — A man can't have enough basement swag</p>
         <p> — A man can't have enough basement swag</p>
+        <p> — A man can't have enough basement swag</p>
+        <p> — A man can't have enough basement swag</p>
+        <p> — A man can't have enough basement swag</p>
+
       </div>
     </div>
   )

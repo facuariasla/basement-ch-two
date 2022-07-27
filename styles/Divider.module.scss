@@ -1,9 +1,16 @@
-.divider_container{
+@import "variables";
+
+.divider_container {
   height: 40px;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   overflow: hidden;
-  .divider{
+
+  @media screen and (max-width: $laptop_width) {
+    height: 30px;
+  }
+
+  .divider {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -11,19 +18,38 @@
     overflow: hidden;
     animation: scroll 30s linear infinite;
     width: calc(550px * 14);
+
+    @media screen and (max-width: $laptop_width) {
+      height: 30px;
+      width: calc(300px * 16);
+      animation: scroll 30s linear infinite;
+    }
+
     @keyframes scroll {
-      0%{
+      0% {
         transform: translateX(0);
       }
-      100%{
+
+      100% {
         transform: translateX(calc(-550px * 7));
+        @media screen and (max-width: $laptop_width) {
+          transform: translateX(calc(-350px * 7));
+        }
       }
     }
-    p{
+
+    p {
       font-size: 22px;
       margin: 0;
       display: inline;
       width: 550px;
+
+      @media screen and (max-width: $laptop_width) {
+        font-size: 14px;
+        margin: 0;
+        display: inline;
+        width: 350px;
+      }
     }
   }
 }
