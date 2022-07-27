@@ -12,6 +12,10 @@
     .logo_desk {
       cursor: pointer;
       font-size: 20px;
+      transition: all .3s;
+      &:hover, &:active{
+        color: rgb(203, 203, 203);
+      }
       @media screen and (max-width: $laptop_width) {
         font-size: 18px;
       }
@@ -27,6 +31,10 @@
       display: none;
       cursor: pointer;
       margin: 0;
+      transition: all .3s;
+      &:hover, &:active{
+        opacity: .7;
+      }
       @media screen and (max-width:$tablet_width) {
         display: flex;
       }
@@ -44,15 +52,20 @@
   }
   .cart{
     border: 1px solid white;
-    padding: 1rem 1.5rem;
+    padding: .8rem 1.5rem;
     border-radius: 30px;
     cursor: pointer;
+    transition: all .3s;
+    &:hover, &:active{
+      background-color: rgb(21, 21, 21);
+      border: 1px solid rgb(174, 174, 174);
+    }
     p{
       font-size: 18px;
       margin: 0;
     }
     @media screen and (max-width: $laptop_width) {
-      padding: 1rem 1.5rem;
+      padding: .6rem 1.5rem;
       p{
         font-size: 16px;
         margin: 0;
