@@ -11,7 +11,7 @@ const HomeProducts = () => {
       <div className={styles.products}>
         {/* CARDS */}
         {inventory?.map((item: any) => (
-          <div className={styles.product_card}>
+          <div key={item.id} className={styles.product_card}>
             <div className={styles.image_container}>
               <Image
                 src={item.image}

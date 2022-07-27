@@ -9,9 +9,15 @@ body {
 }
 *{
   box-sizing: border-box;
+  /* transition: all .3s; */
+
 }
 
 @font-face {
   font-family: 'Basement Grotesque';
   src: url(../public//BasementGrotesque/BasementGrotesque-Black_v1.202.woff);
+}
+a{
+  text-decoration: none;
+  color: #fff;
 }
