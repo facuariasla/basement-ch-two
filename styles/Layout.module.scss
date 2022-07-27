@@ -1,0 +1,13 @@
+@import "variables";
+
+.layout_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .layout {
+    width: 100%;
+    max-width: $semidesk_width;
+    min-height: 100vh;
+  }
+}

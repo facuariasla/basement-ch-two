@@ -1,0 +1,29 @@
+.divider_container{
+  height: 40px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  overflow: hidden;
+  .divider{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 40px;
+    overflow: hidden;
+    animation: scroll 30s linear infinite;
+    width: calc(550px * 14);
+    @keyframes scroll {
+      0%{
+        transform: translateX(0);
+      }
+      100%{
+        transform: translateX(calc(-550px * 7));
+      }
+    }
+    p{
+      font-size: 22px;
+      margin: 0;
+      display: inline;
+      width: 550px;
+    }
+  }
+}
