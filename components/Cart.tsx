@@ -17,7 +17,6 @@ const Cart = () => {
   const cartDetails = useStore((state: any) => state.cartDetails);
   const removeCartItem = useStore((state: any) => state.removeCartItem);
   const setCartItem = useStore((state: any) => state.setCartItem);
-  const setTotalPrice = useStore((state:any) => state.setTotalPrice);
   const totalPrice = useStore((state:any) => state.totalPrice);
 
   const parseCurrency = (value:number):string => {
