@@ -54,3 +54,14 @@
     }
   }
 }
+.floating_add{
+  position: fixed;
+  z-index: 50;
+  bottom: 0;
+  p{
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.114)
+  }
+}

@@ -38,7 +38,7 @@ const Cart = () => {
             className={styles.cart_container}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
+            exit={{ scale: 0, y:-200, x:500 }}
           >
             <div>
               <div className={styles.cart}>
@@ -126,7 +126,9 @@ const Cart = () => {
                     <p>{parseCurrency(totalPrice)}</p>
                   </div>
                   <div className={styles.checkout}>
-                    <h1>CHECKOUT</h1>
+                    <a href='https://basement.studio/' target='_blank'>
+                      <h1>CHECKOUT</h1>
+                    </a>
                   </div>
                 </div>
               </div>

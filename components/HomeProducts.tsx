@@ -3,13 +3,15 @@ import React, { useEffect } from "react";
 import useStore from "../state_zustand";
 import styles from "../styles/Products.module.scss";
 import addImg from "../assets/addtocart.svg";
+import { motion } from "framer-motion";
 
 const HomeProducts = () => {
   const setCartItem = useStore((state: any) => state.setCartItem);
   const setCartDetails = useStore((state: any) => state.setCartDetails);
-  const cart = useStore((state:any) => state.cart);
-  const setTotalPrice = useStore((state:any) => state.setTotalPrice);
-  const setCartQuantity = useStore((state:any) => state.setCartQuantity);
+  const cart = useStore((state: any) => state.cart);
+  const setTotalPrice = useStore((state: any) => state.setTotalPrice);
+  const setCartQuantity = useStore((state: any) => state.setCartQuantity);
+  const cartQuantity = useStore((state: any) => state.cartQuantity);
 
   const handleAddItem = (data: any) => {
     console.log(data);
@@ -19,7 +21,7 @@ const HomeProducts = () => {
   useEffect(() => {
     setCartDetails();
     setTotalPrice();
-    setCartQuantity()
+    setCartQuantity();
   }, [cart]);
 
   const inventory = useStore((state: any) => state.inventory);
@@ -50,6 +52,20 @@ const HomeProducts = () => {
           </div>
         ))}
       </div>
+
+      {cartQuantity > 0 ? (
+        <motion.div
+          className={styles.floating_add}
+          animate={{
+            scale: [1, 2, 2, 1, 1],
+            rotate: [0, 0, 270, 270, 0],
+          }}
+        >
+          <p>+{cartQuantity}</p>
+        </motion.div>
+      ) : (
+        ""
+      )}
     </section>
   );
 };
