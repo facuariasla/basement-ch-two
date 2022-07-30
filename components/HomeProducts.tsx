@@ -40,9 +40,10 @@ const HomeProducts = () => {
                 width={220}
                 height={280}
                 objectFit="cover"
+                alt={item.title}
               />
               <div className={styles.addtocart}>
-                <Image src={addImg} />
+                <Image src={addImg} alt='add img'/>
               </div>
             </div>
             <div className={styles.card_data}>

@@ -22,18 +22,18 @@ const Header = () => {
         <nav className={styles.logo_mobile}>
         <a href='https://basement.studio/' target='_blank' rel="noopener noreferrer">
 
-          <Image src={b_dot} height={60} width={60} />
+          <Image src={b_dot} height={60} width={60} alt='dot icon'/>
           </a>
 
         </nav>
       </div>
 
       <div className={styles.icons_container}>
-        <Image src={circle} />
-        <Image src={hd} />
-        <Image src={eye} />
-        <Image src={fourk} />
-        <Image src={warn} />
+        <Image src={circle} alt='icon'/>
+        <Image src={hd} alt='icon'/>
+        <Image src={eye} alt='icon'/>
+        <Image src={fourk} alt='icon'/>
+        <Image src={warn} alt='icon'/>
       </div>
 
       {/* <nav className={styles.cart}>

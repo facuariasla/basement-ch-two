@@ -58,7 +58,7 @@ const Cart = () => {
                       ? cartDetails.map((el: any) => (
                           <div key={el.id} className={styles.card_item}>
                             <div className={styles.image_container}>
-                              <Image src={el.image} objectFit="cover" />
+                              <Image src={el.image} objectFit="cover" alt={el.title}/>
                             </div>
 
                             <div className={styles.card_data}>

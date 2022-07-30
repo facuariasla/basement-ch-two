@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className={styles.titles_container}>
       <div className={styles2.title_top_container}>
         <div className={styles2.image_container}>
-          <Image src={vectorfooter} objectFit='contain'/>
+          <Image src={vectorfooter} objectFit='contain' alt='vector footer'/>
         </div>
         <h1>WEAR</h1>
       </div>
