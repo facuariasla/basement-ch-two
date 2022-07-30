@@ -8,6 +8,8 @@ const HomeProducts = () => {
   const setCartItem = useStore((state: any) => state.setCartItem);
   const setCartDetails = useStore((state: any) => state.setCartDetails);
   const cart = useStore((state:any) => state.cart);
+  const setTotalPrice = useStore((state:any) => state.setTotalPrice);
+  const setCartQuantity = useStore((state:any) => state.setCartQuantity);
 
   const handleAddItem = (data: any) => {
     console.log(data);
@@ -16,6 +18,8 @@ const HomeProducts = () => {
 
   useEffect(() => {
     setCartDetails();
+    setTotalPrice();
+    setCartQuantity()
   }, [cart]);
 
   const inventory = useStore((state: any) => state.inventory);

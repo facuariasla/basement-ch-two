@@ -1,12 +1,14 @@
 @import "variables";
 
 .cart_container {
+
   p,
   h1,
   h2,
   h3 {
     margin: 0;
   }
+
   position: fixed;
   z-index: 100;
   opacity: 1;
@@ -74,7 +76,7 @@
       }
 
       .cards_container {
-        max-height: 320px;
+        max-height: 290px;
         overflow-y: scroll;
 
         .card_item {
@@ -137,9 +139,12 @@
                   padding: 5px;
                   border-radius: 20px;
                   line-height: 1;
-                  .btns{
+
+                  .btns {
                     cursor: pointer;
-                    &:hover, &:active{
+
+                    &:hover,
+                    &:active {
                       color: yellow;
                     }
                   }
@@ -212,40 +217,74 @@
 
       }
 
+      .clean_cart {
+        display: flex;
+        justify-content: center;
+        padding: 5px 0;
+
+        div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 5px;
+          border-radius: 10px;
+          padding: 0 10px;
+        }
+
+        p {
+          margin: 0;
+          padding: 2px 0 0 0;
+        }
+
+        .clean_trash {
+          cursor: pointer;
+          background: rgba(255, 255, 255, 0.155);
+
+        }
+      }
+
     }
 
 
-    .cart_bottom{
+    .cart_bottom {
       border-top: 1px solid white;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      div{
-        padding:1rem;
+
+      div {
+        padding: 1rem;
       }
+
       @media screen and (max-width: $mobile_width) {
         flex-direction: column;
         border-top: none;
         padding: 0 1.5rem;
-        div{
+
+        div {
           padding: 0;
         }
       }
-      .total_price{
+
+      .total_price {
         display: flex;
         flex-direction: row;
         gap: 1rem;
-        p{
+
+        p {
           font-size: 1.5em;
         }
       }
-      .checkout{
+
+      .checkout {
         border-left: 1px solid white;
-        h1{
+
+        h1 {
           -webkit-text-stroke: .8px white;
           color: black;
         }
+
         @media screen and (max-width: $mobile_width) {
           padding-top: .5rem;
           border-top: 2px solid white;
@@ -258,32 +297,41 @@
     }
   }
 }
-.cart_btn{
+
+.cart_btn {
   border: 1px solid white;
   padding: .8rem 1.5rem;
   border-radius: 30px;
   cursor: pointer;
   transition: all .3s;
-  &:hover, &:active{
+
+  &:hover,
+  &:active {
     background-color: rgb(21, 21, 21);
     border: 1px solid rgb(174, 174, 174);
   }
-  p{
+
+  p {
     font-size: 18px;
     margin: 0;
   }
+
   @media screen and (max-width: $laptop_width) {
     padding: .6rem 1.5rem;
-    p{
+
+    p {
       font-size: 16px;
       margin: 0;
     }
   }
+
   @media screen and (max-width: $mobile_width) {
     padding: .8rem 1rem;
-    p{
+
+    p {
       font-size: 14px;
       margin: 0;
-    }    }
+    }
+  }
 
 }

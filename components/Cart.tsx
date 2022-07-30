@@ -15,6 +15,17 @@ const Cart = () => {
   const cartQuantity = useStore((state: any) => state.cartQuantity);
   const cleanCart = useStore((state: any) => state.cleanCart);
   const cartDetails = useStore((state: any) => state.cartDetails);
+  const removeCartItem = useStore((state: any) => state.removeCartItem);
+  const setCartItem = useStore((state: any) => state.setCartItem);
+  const setTotalPrice = useStore((state:any) => state.setTotalPrice);
+  const totalPrice = useStore((state:any) => state.totalPrice);
+
+  const parseCurrency = (value:number):string => {
+    return value.toLocaleString("es-AR", {
+      style: "currency",
+      currency: "ARS",
+    });
+  }
 
   return (
     <LayoutGroup>
@@ -61,9 +72,9 @@ const Cart = () => {
                                 <div className={styles.quantity}>
                                   <p>QUANTITY:</p>
                                   <div className={styles.quantity_counter}>
-                                    <p className={styles.btns}>-</p>
+                                    <p className={styles.btns} onClick={()=>removeCartItem(el)}>-</p>
                                     <p>{cart[el.id]}</p>
-                                    <p className={styles.btns}>+</p>
+                                    <p className={styles.btns} onClick={()=>setCartItem(el)}>+</p>
                                   </div>
                                 </div>
                                 <div className={styles.size_price}>
@@ -85,7 +96,7 @@ const Cart = () => {
                                     </div>
                                   </div>
                                   <div className={styles.price}>
-                                    <p>${el.price}</p>
+                                    <p>${(el.price)*(cart[el.id])}</p>
                                   </div>
                                 </div>
                               </div>
@@ -96,26 +107,24 @@ const Cart = () => {
 
                     {/* End MAP */}
                   </div>
-                  {cartQuantity > 0 ? (
-                    <p
-                      onClick={() => cleanCart()}
-                      style={{
-                        padding: "10px 0 0 0",
-                        margin: "0",
-                        cursor: "pointer",
-                      }}
-                    >
-                      Clean cart
-                    </p>
-                  ) : (
-                    ""
-                  )}
+                  <div className={styles.clean_cart}>
+                    {cartQuantity > 0 ? (
+                      <div onClick={() => cleanCart()} className={styles.clean_trash}>
+                        <p>Clean cart</p>
+                        <img src="https://icongr.am/fontawesome/trash-o.svg?size=22&color=ffffff" />
+                      </div>
+                    ) : (
+                      <div className={styles.empty_cart}>
+                        <h1>IS EMPTY</h1>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div className={styles.cart_bottom}>
                   <div className={styles.total_price}>
                     <p>TOTAL:</p>
-                    <p>$37.50</p>
+                    <p>{parseCurrency(totalPrice)}</p>
                   </div>
                   <div className={styles.checkout}>
                     <h1>CHECKOUT</h1>

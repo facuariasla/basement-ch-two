@@ -33,6 +33,7 @@ export const createProductsSlice = (set: any, get: any) => ({
   cart: {},
   cartQuantity: 0,
   cartDetails: [],
+  totalPrice:0,
   setCartItem: (item: InventoryItem) => {
     set({
       cart: {
@@ -42,14 +43,6 @@ export const createProductsSlice = (set: any, get: any) => ({
     });
     console.log("cart: ", get().cart);
 
-    // Set cartQuantity
-    const quant = Object.entries(get().cart).reduce(
-      (acc: any, el: any) => acc + el[1],
-      0
-    );
-    set({
-      cartQuantity: quant,
-    });
   },
   cleanCart: () => {
     set({
@@ -64,10 +57,40 @@ export const createProductsSlice = (set: any, get: any) => ({
       Object.entries(get().cart).find((b: any) => b[0] == a.id)
     );
     set({
-      cartDetails: array
-    })
+      cartDetails: array,
+    });
 
-    
     console.log(get().cartDetails);
+  },
+  removeCartItem: (item: any) => {
+    const copy = { ...get().cart };
+    if (copy[item.id] === 1) {
+      delete copy[item.id];
+      set({
+        cart: copy,
+      });
+    } else {
+      set({
+        cart: { ...copy, [item.id]: copy[item.id] - 1 },
+      });
+    }
+  },
+  setTotalPrice: () => {
+    let total = get().cartDetails.reduce(
+      (acc: any, el: any) => acc + el.price * get().cart[el.id],
+      0
+    );
+    set({
+      totalPrice: total
+    })
+    console.log(total);
+  },
+  setCartQuantity: () => {
+    let cartArr = Object.values(get().cart);
+    let newQuant = cartArr.reduce((acc:any, el:any) => acc + el, 0)
+    console.log(newQuant)
+    set({
+      cartQuantity: newQuant
+    })
   },
 });
