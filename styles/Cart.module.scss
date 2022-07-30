@@ -188,13 +188,14 @@
                       width: 28px;
                       height: 28px;
                       border-radius: 40px;
-                      cursor: pointer;
-                      transition: all .3s;
+                      cursor: not-allowed;
+                      // cursor: pointer;
+                      // transition: all .3s;
 
-                      &:hover,
-                      &:active {
-                        border: 1px solid white;
-                      }
+                      // &:hover,
+                      // &:active {
+                      //   border: 1px solid white;
+                      // }
 
                       p {
                         font-size: 12px;
