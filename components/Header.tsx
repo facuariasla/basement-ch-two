@@ -8,6 +8,7 @@ import eye from "../assets/eye-icon.svg";
 import fourk from "../assets/4k-icon.svg";
 import warn from "../assets/warn-icon.svg";
 import Link from "next/link";
+import Cart from "./Cart";
 
 const Header = () => {
   return (
@@ -35,9 +36,10 @@ const Header = () => {
         <Image src={warn} />
       </div>
 
-      <nav className={styles.cart}>
+      {/* <nav className={styles.cart}>
         <p>CART (0)</p>
-      </nav>
+      </nav> */}
+      <Cart/>
     </div>
   );
 };

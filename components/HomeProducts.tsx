@@ -1,16 +1,22 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import useStore from "../state_zustand";
 import styles from "../styles/Products.module.scss";
 import addImg from "../assets/addtocart.svg";
 
 const HomeProducts = () => {
+  const setCartItem = useStore((state: any) => state.setCartItem);
+  const setCartDetails = useStore((state: any) => state.setCartDetails);
+  const cart = useStore((state:any) => state.cart);
 
+  const handleAddItem = (data: any) => {
+    console.log(data);
+    setCartItem(data);
+  };
 
-
-  const handleAddItem = (data:any) => {
-    console.log(data)
-  }
+  useEffect(() => {
+    setCartDetails();
+  }, [cart]);
 
   const inventory = useStore((state: any) => state.inventory);
   return (
@@ -19,7 +25,10 @@ const HomeProducts = () => {
         {/* CARDS */}
         {inventory?.map((item: any) => (
           <div key={item.id} className={styles.product_card}>
-            <div className={styles.image_container} onClick={()=>handleAddItem(item)}>
+            <div
+              className={styles.image_container}
+              onClick={() => handleAddItem(item)}
+            >
               <Image
                 src={item.image}
                 width={220}

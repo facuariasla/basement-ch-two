@@ -1,11 +1,12 @@
 import shirtimg from "../assets/shirt.png";
 import hoodieimg from "../assets/hoodie.png";
 import capimg from "../assets/cap.png";
+import { InventoryItem } from "./types";
 
 export const createProductsSlice = (set: any, get: any) => ({
   inventory: [
     {
-      id: 1,
+      id: "shirt-041",
       title: "Black t-shirt",
       description: "Unisex Basic softstyle T-Shirt",
       image: shirtimg,
@@ -13,7 +14,7 @@ export const createProductsSlice = (set: any, get: any) => ({
       stock: [{ s: 10 }, { m: 20 }, { l: 15 }, { xl: 100 }],
     },
     {
-      id: 2,
+      id: "hoodie-2314",
       title: "Black hoodie",
       description: "Unisex Basic HeayWeight Black Hoodie",
       image: hoodieimg,
@@ -21,7 +22,7 @@ export const createProductsSlice = (set: any, get: any) => ({
       stock: [{ s: 10 }, { m: 20 }, { l: 15 }, { xl: 100 }],
     },
     {
-      id: 3,
+      id: "cap-21452",
       title: "Black cap",
       description: "Unisex Basic Cap",
       image: capimg,
@@ -29,25 +30,44 @@ export const createProductsSlice = (set: any, get: any) => ({
       stock: [{ s: 10 }, { m: 20 }, { l: 15 }, { xl: 100 }],
     },
   ],
-  cart: [],
-  setCartItem: (item: any) => {
-    const inventoryElement= get().inventory.find(
-      (element: any) => element.id === item.id
-    );
-    const inventoryDiscount = inventoryElement.stock.map((size:any) => 
-      size === item.size
-    )
-    // logica
+  cart: {},
+  cartQuantity: 0,
+  cartDetails: [],
+  setCartItem: (item: InventoryItem) => {
+    set({
+      cart: {
+        ...get().cart,
+        [item.id]: (get().cart[item.id] || 0) + 1,
+      },
+    });
+    console.log("cart: ", get().cart);
 
-    // set({
-    //   standarTradePrice: data,
-    // });
+    // Set cartQuantity
+    const quant = Object.entries(get().cart).reduce(
+      (acc: any, el: any) => acc + el[1],
+      0
+    );
+    set({
+      cartQuantity: quant,
+    });
   },
-
-  removeFav: (token: any) => {
-    const favFilter = get().favTokens?.filter(
-      (el: any) => el.symbol !== token.symbol
+  cleanCart: () => {
+    set({
+      cart: {},
+    });
+    set({
+      cartQuantity: 0,
+    });
+  },
+  setCartDetails: () => {
+    let array = get().inventory.filter((a: any) =>
+      Object.entries(get().cart).find((b: any) => b[0] == a.id)
     );
-    console.log(favFilter);
+    set({
+      cartDetails: array
+    })
+
+    
+    console.log(get().cartDetails);
   },
 });
