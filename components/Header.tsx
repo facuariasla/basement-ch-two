@@ -7,7 +7,6 @@ import hd from "../assets/hd-icon.svg";
 import eye from "../assets/eye-icon.svg";
 import fourk from "../assets/4k-icon.svg";
 import warn from "../assets/warn-icon.svg";
-import Link from "next/link";
 import Cart from "./Cart";
 
 const Header = () => {

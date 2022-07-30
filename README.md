@@ -1,5 +1,12 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Access link
+https://basement-ch.vercel.app/
+
+## Description
+Challenge from https://basementstudio.notion.site/b-Front-end-Dev-Challenge-da2967c579374fb4969e475dc15fb552
+* Developed in TypeScript, React (Next) & state management with Zustand
+* Styled with Sass, and couple of visuals using framer-motion
 ## Getting Started
 
 First, run the development server:

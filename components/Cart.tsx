@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Cart.module.scss";
 import {
   motion,
   AnimatePresence,
-  AnimateSharedLayout,
   LayoutGroup,
 } from "framer-motion";
 import useStore from "../state_zustand";
@@ -95,7 +94,7 @@ const Cart = () => {
                                     </div>
                                   </div>
                                   <div className={styles.price}>
-                                    <p>${(el.price)*(cart[el.id])}</p>
+                                    <p>{parseCurrency((el.price)*(cart[el.id]))}</p>
                                   </div>
                                 </div>
                               </div>
