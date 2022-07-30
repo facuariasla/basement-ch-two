@@ -41,7 +41,7 @@ export const createProductsSlice = (set: any, get: any) => ({
         [item.id]: (get().cart[item.id] || 0) + 1,
       },
     });
-    console.log("cart: ", get().cart);
+    // console.log("cart: ", get().cart);
 
   },
   cleanCart: () => {
@@ -60,7 +60,7 @@ export const createProductsSlice = (set: any, get: any) => ({
       cartDetails: array,
     });
 
-    console.log(get().cartDetails);
+    // console.log(get().cartDetails);
   },
   removeCartItem: (item: any) => {
     const copy = { ...get().cart };
@@ -83,12 +83,12 @@ export const createProductsSlice = (set: any, get: any) => ({
     set({
       totalPrice: total
     })
-    console.log(total);
+    // console.log(total);
   },
   setCartQuantity: () => {
     let cartArr = Object.values(get().cart);
     let newQuant = cartArr.reduce((acc:any, el:any) => acc + el, 0)
-    console.log(newQuant)
+    // console.log(newQuant)
     set({
       cartQuantity: newQuant
     })
