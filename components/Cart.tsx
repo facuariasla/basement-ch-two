@@ -126,7 +126,7 @@ const Cart = () => {
                     <p>{parseCurrency(totalPrice)}</p>
                   </div>
                   <div className={styles.checkout}>
-                    <a href='https://basement.studio/' target='_blank'>
+                    <a href='https://basement.studio/' target='_blank' rel="noopener noreferrer">
                       <h1>CHECKOUT</h1>
                     </a>
                   </div>
