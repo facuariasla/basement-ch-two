@@ -14,7 +14,7 @@ const HomeProducts = () => {
   const cartQuantity = useStore((state: any) => state.cartQuantity);
 
   const handleAddItem = (data: any) => {
-    console.log(data);
+    // console.log(data);
     setCartItem(data);
   };
 
